@@ -1,5 +1,5 @@
 # Pirmas laboratorinis darbas
-# Versija v0.1
+## Versija v0.1
 Sukurta pirma versija v0.1, kurioje:
 
 - Sukurta struktūra Studentas, kurioje kaupiami duomenys apie studentą: vardas, pavardė, pažymiai, vidurkis, mediana.
@@ -13,7 +13,7 @@ Sukurta pirma versija v0.1, kurioje:
 
 Kodą rasti: lab->lab->programa.cpp.
 
-# Versija v0.2
+## Versija v0.2
 
 Antrojoje versijoje matome ir kelis pasikeitimus nuo v0.1 versijos:
 - Sukurta failų generavimo funkcija, kuri sugeneruoja 1000, 10000, 100000, 1000000 ir 10000000 dydžio studentų failus.
@@ -29,7 +29,7 @@ Generavimo vidurkiai:
 - 1000000 įrašų failas sukuriamas per vidutiniškai 2.8 s.
 - 10000000 įrašų failas sukuriamas per vidutiniškai 28.44 s.
 
-# Versija v0.3
+## Versija v0.3
 
 v0.3 versijoje taip pat atlikti keli pakeitimai:
 - Pridėtas pasirinkimas kokiame konteineryje norima talpinti studento duomenis (Vector arba List).
@@ -71,7 +71,7 @@ IŠVADOS: iš rezultatų matome, kad labai didelių skirtumų tarp konteinerių 
 
 Kompiutrio parametrai, su kuriuo buvo atliktas testavimas: 8 GB RAM, SSD 251 GB, procesorius gali būti iki 3.49 GHz.
 
-# Versija v1.0
+## Versija v1.0
 
 Išmatuota programos veikimo sparta priklausomai nuo studentų dalijimo į dvi grupes strategijos:
 - 1 strategija - anksčiau naudotas būdas, kai bendras studentai konteineris skaidomas ir vargšiukus ir galvočius ir studentas lieka dviejuose konteineriuose: studentai ir vargšiukai arba galvočiai.
@@ -131,3 +131,22 @@ Pasirinkus antrą opciją, programa sugeneruoja failus su įrašais nuo 1000 iki
   - Nuskaitymas iš failo: pasirenkame failą, kurį norime nuskaityti --> parodomas failo nuskaitymo laikas --> parodoma kiek iš viso yra galvočių ir vargšiukų.
 8. Atlikę visus šiuos veiksmus ir padarę savo norimus pasirinkimus galime mėgautis rezultatais, kurie yra išvedami į failus pagal mūsų pačių atliktus pasirinkimus.
 9. Jei norite duomenis pergrupuoti kitaip arba patikrinti su kitais duomenimis, tai visus žingsnius reiktų pakartoti iš naujo.
+
+# Antras laboratorinis darbas
+## Versija v1.1
+
+Naujos versijos pakeitimai:
+- Visų pirma, naujas laboratorinis darbas pareikalavo repozitorijos klonavimo, kuri ir buvo atlikta, išlaikant visą istoriją iš anksčiau.
+- Objektų laikymas struktūrose buvo pakeistas objektų laikymu klasėse.
+- Buvo atliktas programos spartos matavimas, naudojant List 3 strategijos konteinerį, nes jis buvo optimaliausias dalijant studentus į dvi grupes.
+- Taip pat buvo atlikta eksperimentinė analizė, priklausomai nuo kompiliatoriaus optimizavimo lygio.
+
+Analizė: buvo matuojami 100000 ir 1000000 įrašų failai ir jų padalijimas į galvočius ir vargšiukus. Kiekvienas failas buvo matuojamas 5 kartus ir išvedamas matavimo vidurkis. Taip pat antras eksperimentas buvo žiūrimas vykdomojo failo dydis, priklausomai nuo optimizavimo lygio.
+
+Rezultatai:
+
+**1. Programos spartos testas, priklausomai nuo: optimizavimo lygio, įrašų skaičiaus ir struktūros arba klasės.**
+
+**2. Vykdomojo failo dydis, priklausomai nuo tipo ir optimizavimo lygio.**
+
+**Išvados:**
