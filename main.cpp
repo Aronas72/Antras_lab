@@ -45,9 +45,25 @@ int main() {
         strategija3_list(grupe, vargsiukai, galvociai);
         end = high_resolution_clock::now();
         cout<<"Skirstymas uztruko: "<<duration<double>(end-start).count()<<" s"<<endl;
+        
+        int rik=0;
+        cout<<"Pasirinkite pagal ka rikiuoti:"<<endl;
+        cout<<"1 - vardas"<<endl;
+        cout<<"2 - pavarde"<<endl;
+        cout<<"3 - balas"<<endl;
+        cout<<"Jusu pasirinkimas: ";
+        cin>>rik;
+        
+        int balas=0;
+        cout<<"Pasirinkite kaip skaiciuoti galutini bala:"<<endl;
+        cout<<"1 - vidurkis"<<endl;
+        cout<<"2 - mediana"<<endl;
+        cout<<"3 - abu"<<endl;
+        cout<<"Jusu pasirinkimas: ";
+        cin>>balas;
 
         start = high_resolution_clock::now();
-        isvedimas(vargsiukai, galvociai);
+        isvedimas(vargsiukai, galvociai, rik, balas);
         end = high_resolution_clock::now();
         cout<<"Isvedimas uztruko: "<<duration<double>(end-start).count()<<" s"<<endl;}
     return 0;}
