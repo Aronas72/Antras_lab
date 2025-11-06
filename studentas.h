@@ -22,6 +22,7 @@ using std::fixed;
 using std::setprecision;
 
 double mediana(const vector<double>& v);
+double vidurkis(const vector<double>& v);
 
 class Studentas {
 private:
@@ -48,5 +49,3 @@ public:
 bool compare(const Studentas& a, const Studentas& b);
 bool comparePagalPavarde(const Studentas& a, const Studentas& b);
 bool comparePagalEgza(const Studentas& a, const Studentas& b);
-
-#endif
