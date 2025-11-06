@@ -15,7 +15,7 @@ using std::left;
 using std::right;
 
 list<Studentas> nuskaitymas(const string& failpav);
-void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvociai);
+void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvociai, int rik, int balas);
 void strategija3_list(list<Studentas>& grupe, list<Studentas>& vargsiukai, list<Studentas>& galvociai);
 void testavimas();
 
