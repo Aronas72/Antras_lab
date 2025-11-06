@@ -30,27 +30,42 @@ void strategija3_list(list<Studentas>& grupe, list<Studentas>& vargsiukai, list<
         } else{
             galvociai.splice(galvociai.end(), grupe, it++);}}}
 
-void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvociai) {
+void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvociai, int rik, int balas) {
     list<Studentas> v=vargsiukai;
     list<Studentas> g=galvociai;
     
-    v.sort(comparePagalEgza);
-    g.sort(comparePagalEgza);
-    ofstream fv("vargsiukai.txt");
-    fv<<setw(15)<<left<<"Vardas"<<setw(20)<<left<<"Pavarde"<<setw(10)<<left<<"Galutinis (Med.)"<<endl;
-    fv<<string(45, '-')<<endl;
-    for(const auto& st : v) {
-        fv<<setw(15)<<left<<st.vardas()<<setw(20)<<left<<st.pavarde()<<setw(10)<<left<<fixed<<setprecision(2)<<st.galBalas(mediana)<<endl;}
-    fv.close();
+    bool (*lyg)(const Studentas&, const Studentas&) = comparePagalEgza;
+        if (rik==1) {
+            lyg=compare;}
+        else if (rik==2) {
+            lyg=comparePagalPavarde;}
+        else if(rik==3){
+            lyg=comparePagalEgza;}
 
-    ofstream fg("galvociai.txt");
-    fg<<setw(15)<<left<<"Vardas"<<setw(20)<<left<<"Pavarde"<<setw(10)<<left<<"Galutinis (Med.)"<<endl;
-    fg<<string(45, '-')<<endl;
-    for(const auto& st : g) {
-        fg<<setw(15)<<left<<st.vardas()<<setw(20)<<left<<st.pavarde()<<setw(10)<<left<<fixed<<setprecision(2)<<st.galBalas(mediana)<<endl;}
-    fg.close();
-
-    cout << "Is viso: " << vargsiukai.size() << " vargsiuku ir " << galvociai.size() << " galvociu." << endl;}
+    v.sort(lyg);
+    g.sort(lyg);
+    double (*skaic_func)(const vector<double>&) = (balas == 1) ? vidurkis : mediana;
+        string balas_pav = (balas == 1) ? "Galutinis (Vid.)" : "Galutinis (Med.)";
+        auto isvesti_i_faila = [&](const string& pav, const list<Studentas>& studentai) {
+            ofstream fo(pav);
+            fo<<setw(15)<<left<<"Vardas"<<setw(20)<<left<<"Pavarde";
+            if (balas == 3) {
+                fo<<setw(15)<<left<<"Galutinis (Med.)"<<setw(15)<<left<<"Galutinis (Vid.)"<<endl;
+                fo<<string(65, '-')<<endl;}
+            else {
+                fo<<setw(15)<<left<<balas_pav<<endl;
+                fo<<string(50, '-')<<endl;}
+            for(const auto& st : studentai) {
+                fo<<setw(15)<<left<<st.vardas()<<setw(20)<<left<<st.pavarde();
+                if (balas == 3) {
+                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.galBalas(mediana);
+                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.galBalas(vidurkis)<<endl;}
+                else {
+                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.galBalas(skaic_func)<<endl;}}
+            fo.close();};
+        isvesti_i_faila("vargsiukai.txt", v);
+        isvesti_i_faila("galvociai.txt", g);
+        cout << "Is viso: " << vargsiukai.size() << " vargsiuku ir " << galvociai.size() << " galvociu." << endl;}
 
 void testavimas(){
     string failai[]={"mano100000.txt", "mano1000000.txt"};
