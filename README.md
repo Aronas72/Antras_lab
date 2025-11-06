@@ -146,7 +146,38 @@ Analizė: buvo matuojami 100000 ir 1000000 įrašų failai ir jų padalijimas į
 Rezultatai:
 
 **1. Programos spartos testas, priklausomai nuo: optimizavimo lygio, įrašų skaičiaus ir struktūros arba klasės.**
+- **100 000 įrašų matavimas sekundėmis**
+  
+|Optimizavimo lygis|STRUCT|CLASS |
+|------------------|-----:|-----:|
+|        O1        |0.0006|0.0036|
+|        O2        |0.0007|0.0035|
+|        O3        |0.0006|0.0035|
+
+- **1 000 000 įrašų matavimas sekundėmis**
+  
+|Optimizavimo lygis|STRUCT|CLASS |
+|------------------|-----:|-----:|
+|        O1        |0.0148|0.0992|
+|        O2        |0.0111|0.0999|
+|        O3        |0.0139|0.0979|
 
 **2. Vykdomojo failo dydis, priklausomai nuo tipo ir optimizavimo lygio.**
+- **STRUCT**
+  
+|Optimizavimo lygis|Failo dydis (KB)|
+|------------------|---------------:|
+|        O1        |       157      |
+|        O2        |       157      |
+|        O3        |       190      |
+
+- **CLASS**
+
+|Optimizavimo lygis|Failo dydis (KB)|
+|------------------|---------------:|
+|        O1        |        63      |
+|        O2        |        63      |
+|        O3        |        63      |
+
 
 **Išvados:**
