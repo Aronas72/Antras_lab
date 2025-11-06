@@ -181,3 +181,7 @@ Rezultatai:
 
 
 **Išvados:**
+- Matome, kad dalijimas į grupes nuo optimizavimo lygio beveik nepriklauso, skiriasi tik kelios sekundės dalys.
+- Dalijimas į grupes tiek su 100 000, tiek su 1 000 000 įrašų failais buvo greitesnis struktūros atveju, skitumas pakankamai žymus.
+- Failų dydžiai struktūroje truputį skiriasi: su O3 optimizavimo lygiu failas buvo didžiausias, o su kitais mažesnis ir jų dydis buvo toks pats.
+- Klasės atveju visi failai buvo vienodo dydžio. Teko pasidomėti kodėl taip gavosi. Ir atsakymas toks, kad pats algoritmas yra pakanakami optimizuotas, kad optimizavimo lygis nedaro jokio įtakos failo dydžiui/
