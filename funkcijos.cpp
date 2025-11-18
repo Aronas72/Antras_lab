@@ -20,31 +20,32 @@ list<Studentas> nuskaitymas(const string& failpav) {
         st=Studentas();}
     return grupe;}
 
-void strategija3_list(list<Studentas>& grupe, list<Studentas>& vargsiukai, list<Studentas>& galvociai) {
-    auto is_vargsiukas=[](const Studentas& st) {
-        return st.galBalas(mediana)<5.0;};
-
-    for (auto it=grupe.begin(); it!=grupe.end(); ){
-        if (is_vargsiukas(*it)){
-            vargsiukai.splice(vargsiukai.end(), grupe, it++);
-        } else{
-            galvociai.splice(galvociai.end(), grupe, it++);}}}
+void strategija2_list(list<Studentas>& grupe, list<Studentas>& vargsiukai, int pasirinkti){
+    for(auto it = grupe.begin(); it != grupe.end(); ){
+            double bal = (pasirinkti == 2 ? it->med : it->gal);
+            if(bal<5.0){
+                vargsiukai.push_back(*it);
+                it = grupe.erase(it);
+            } else ++it;}}
 
 void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvociai, int rik, int balas) {
     list<Studentas> v=vargsiukai;
     list<Studentas> g=galvociai;
     
-    bool (*lyg)(const Studentas&, const Studentas&) = comparePagalEgza;
-        if (rik==1) {
-            lyg=compare;}
-        else if (rik==2) {
-            lyg=comparePagalPavarde;}
-        else if(rik==3){
-            lyg=comparePagalEgza;}
+    bool (*lyg)(const Studentas&, const Studentas&);
+    if (rik==1) {
+        lyg=compare;}
+    else if (rik==2) {
+        lyg=comparePagalPavarde;}
+    else if(rik==3){
+        if (balas==1){
+            lyg=comparePagalVid;}
+        else{
+            lyg = comparePagalMed;
+        }}
 
     v.sort(lyg);
     g.sort(lyg);
-    double (*skaic_func)(const vector<double>&) = (balas == 1) ? vidurkis : mediana;
         string balas_pav = (balas == 1) ? "Galutinis (Vid.)" : "Galutinis (Med.)";
         auto isvesti_i_faila = [&](const string& pav, const list<Studentas>& studentai) {
             ofstream fo(pav);
@@ -58,10 +59,11 @@ void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvoci
             for(const auto& st : studentai) {
                 fo<<setw(15)<<left<<st.vardas()<<setw(20)<<left<<st.pavarde();
                 if (balas == 3) {
-                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.galBalas(mediana);
-                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.galBalas(vidurkis)<<endl;}
+                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.med;
+                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.gal<<endl;}
                 else {
-                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<st.galBalas(skaic_func)<<endl;}}
+                    double final_bal = (balas == 1) ? st.gal : st.med;
+                    fo<<setw(15)<<left<<fixed<<setprecision(2)<<final_bal<<endl;}}
             fo.close();};
         isvesti_i_faila("vargsiukai.txt", v);
         isvesti_i_faila("galvociai.txt", g);
@@ -70,6 +72,14 @@ void isvedimas(const list<Studentas>& vargsiukai, const list<Studentas>& galvoci
 void testavimas(){
     string failai[]={"mano100000.txt", "mano1000000.txt"};
     int pal=5;
+    
+    int balas=0;
+    cout<<"Pasirinkite kaip skaiciuoti galutini bala:"<<endl;
+    cout<<"1 - vidurkis"<<endl;
+    cout<<"2 - mediana"<<endl;
+    cout<<"3 - abu"<<endl;
+    cout<<"Jusu pasirinkimas: ";
+    cin>>balas;
 
     cout<<"Testavimo pradzia. Naudojamas konteineris: List, Strategija: 3."<<endl;
     for (const string& failas : failai){
@@ -84,7 +94,7 @@ void testavimas(){
 
             start=std::chrono::high_resolution_clock::now();
             list<Studentas> vargsiukai, galvociai;
-            strategija3_list(grupe, vargsiukai, galvociai);
+            strategija2_list(grupe, vargsiukai, balas);
             end=std::chrono::high_resolution_clock::now();
             diff=end-start;
             lskirstymas += diff.count();}
@@ -92,3 +102,4 @@ void testavimas(){
         cout<<"Failas: "<<failas<<endl;
         cout<<"Listas: skaitymo vidurkis: "<<fixed<<setprecision(5)<<(lskaitymas/pal)<<" s, dalijimo vidurkis: "<<(lskirstymas/pal)<<" s"<<endl;}
     cout<<"Testavimo pabaiga."<<endl;}
+
