@@ -32,9 +32,17 @@ private:
     vector<double> nd_;
 
 public:
+    double med;
+    double gal;
+    
     Studentas() : egzaminas_(0) {}
     Studentas(istream& is);
-    ~Studentas() {}
+    ~Studentas() {
+        vardas_.clear();
+        pavarde_.clear();
+        egzaminas_=0;
+        nd_.clear();
+    }
 
     inline string vardas() const { return vardas_; }
     inline string pavarde() const { return pavarde_; }
@@ -48,6 +56,7 @@ public:
 
 bool compare(const Studentas& a, const Studentas& b);
 bool comparePagalPavarde(const Studentas& a, const Studentas& b);
-bool comparePagalEgza(const Studentas& a, const Studentas& b);
+bool comparePagalMed(const Studentas& a, const Studentas& b);
+bool comparePagalVid(const Studentas& a, const Studentas& b);
 
 #endif
