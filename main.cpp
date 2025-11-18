@@ -12,7 +12,7 @@ int main() {
     mt19937 gener(rd());
 
     cout<<"Pasirinkti veiksma:"<<endl;
-    cout<<"1 - ivesti studentus (list, strategija 3)."<<endl;
+    cout<<"1 - ivesti studentus (list, strategija 2)."<<endl;
     cout<<"2 - sugeneruoti failus."<<endl;
     cout<<"3 - atlikti testavima su 100000 ir 1000000 dydzio failais."<<endl;
     cout<<"Pasirinkimas: ";
@@ -39,10 +39,16 @@ int main() {
         cout<<"Nuskaitymas uztruko: "<<duration<double>(end-start).count()<<" s"<<endl;
 
         list<Studentas> vargsiukai;
-        list<Studentas> galvociai;
+        
+        int gbalas=0;
+        cout<<"Pasirinkite kaip skirstyti studentus:"<<endl;
+        cout<<"1 - vidurkis"<<endl;
+        cout<<"2 - mediana"<<endl;
+        cout<<"Jusu pasirinkimas: ";
+        cin>>gbalas;
 
         start = high_resolution_clock::now();
-        strategija3_list(grupe, vargsiukai, galvociai);
+        strategija2_list(grupe, vargsiukai, gbalas);
         end = high_resolution_clock::now();
         cout<<"Skirstymas uztruko: "<<duration<double>(end-start).count()<<" s"<<endl;
         
@@ -55,7 +61,7 @@ int main() {
         cin>>rik;
         
         int balas=0;
-        cout<<"Pasirinkite kaip skaiciuoti galutini bala:"<<endl;
+        cout<<"Pasirinkite, kuriuos parametrus rodyti (pagal juos buvo suskaiciuotas ir galutinis balas):"<<endl;
         cout<<"1 - vidurkis"<<endl;
         cout<<"2 - mediana"<<endl;
         cout<<"3 - abu"<<endl;
@@ -63,7 +69,7 @@ int main() {
         cin>>balas;
 
         start = high_resolution_clock::now();
-        isvedimas(vargsiukai, galvociai, rik, balas);
+        isvedimas(vargsiukai, grupe, rik, balas);
         end = high_resolution_clock::now();
         cout<<"Isvedimas uztruko: "<<duration<double>(end-start).count()<<" s"<<endl;}
     return 0;}
