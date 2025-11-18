@@ -37,7 +37,11 @@ istream& Studentas::readStudent(istream& is) {
         else{
             egzaminas_=pazymiai.back();
             pazymiai.pop_back();
-            nd_=pazymiai;}}
+            nd_=pazymiai;}
+        double nd_vid = vidurkis(nd_);
+        double nd_med = mediana(nd_);
+        med = nd_med*0.4+egzaminas_*0.6;
+        gal = nd_vid*0.4+egzaminas_*0.6;}
     return is;}
 
 bool compare(const Studentas& a, const Studentas& b) {
@@ -46,5 +50,8 @@ bool compare(const Studentas& a, const Studentas& b) {
 bool comparePagalPavarde(const Studentas& a, const Studentas& b) {
     return a.pavarde()<b.pavarde();}
 
-bool comparePagalEgza(const Studentas& a, const Studentas& b) {
-    return a.galBalas(mediana)<b.galBalas(mediana);}
+bool comparePagalMed(const Studentas& a, const Studentas& b) {
+    return a.med < b.med;}
+
+bool comparePagalVid(const Studentas& a, const Studentas& b) {
+    return a.gal < b.gal;}
