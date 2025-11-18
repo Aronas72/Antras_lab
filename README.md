@@ -1,5 +1,5 @@
 # Pirmas laboratorinis darbas
-## Versija v0.1
+# Versija v0.1
 Sukurta pirma versija v0.1, kurioje:
 
 - Sukurta struktūra Studentas, kurioje kaupiami duomenys apie studentą: vardas, pavardė, pažymiai, vidurkis, mediana.
@@ -13,7 +13,7 @@ Sukurta pirma versija v0.1, kurioje:
 
 Kodą rasti: lab->lab->programa.cpp.
 
-## Versija v0.2
+# Versija v0.2
 
 Antrojoje versijoje matome ir kelis pasikeitimus nuo v0.1 versijos:
 - Sukurta failų generavimo funkcija, kuri sugeneruoja 1000, 10000, 100000, 1000000 ir 10000000 dydžio studentų failus.
@@ -29,7 +29,7 @@ Generavimo vidurkiai:
 - 1000000 įrašų failas sukuriamas per vidutiniškai 2.8 s.
 - 10000000 įrašų failas sukuriamas per vidutiniškai 28.44 s.
 
-## Versija v0.3
+# Versija v0.3
 
 v0.3 versijoje taip pat atlikti keli pakeitimai:
 - Pridėtas pasirinkimas kokiame konteineryje norima talpinti studento duomenis (Vector arba List).
@@ -71,7 +71,7 @@ IŠVADOS: iš rezultatų matome, kad labai didelių skirtumų tarp konteinerių 
 
 Kompiutrio parametrai, su kuriuo buvo atliktas testavimas: 8 GB RAM, SSD 251 GB, procesorius gali būti iki 3.49 GHz.
 
-## Versija v1.0
+# Versija v1.0
 
 Išmatuota programos veikimo sparta priklausomai nuo studentų dalijimo į dvi grupes strategijos:
 - 1 strategija - anksčiau naudotas būdas, kai bendras studentai konteineris skaidomas ir vargšiukus ir galvočius ir studentas lieka dviejuose konteineriuose: studentai ir vargšiukai arba galvočiai.
@@ -83,22 +83,22 @@ Rezultatai (duomenys buvo atlikti 5 kartus kiekvienai strategijai ir matuojama s
 **1. Vector konteineris**
 |Įrašų skaičius|   1 strategija   |   2 strategija   |   3 strategija   |
 |--------------|-----------------:|-----------------:|-----------------:|
-|1 000         |      0.0004      |      0.0002      |      0.0004      |
-|10 000        |      0.0025      |      0.0018      |      0.0042      |
-|100 000       |      0.0239      |      0.0172      |      0.0447      |
-|1 000 000     |      0.2557      |      0.1819      |      0.4397      |
-|10 000 000    |      2.9507      |      1.8561      |      5.1002      |
+|1 000         |      0.0004      |      0.0003      |      0.0004      |
+|10 000        |      0.0025      |      0.0033      |      0.0042      |
+|100 000       |      0.0239      |      0.0318      |      0.0447      |
+|1 000 000     |      0.2557      |      0.3012      |      0.4397      |
+|10 000 000    |      2.9507      |      3.0203      |      5.1002      |
 
 **2. List konteineris**
 |Įrašų skaičius|   1 strategija   |   2 strategija   |   3 strategija   |
 |--------------|-----------------:|-----------------:|-----------------:|
-|1 000         |      0.0003      |      0.0002      |      0.0001      |
-|10 000        |      0.0023      |      0.0016      |      0.0004      |
-|100 000       |      0.0223      |      0.0156      |      0.0039      |
-|1 000 000     |      0.2271      |      0.1677      |      0.0354      |
-|10 000 000    |      3.0576      |      2.0167      |      0.7461      |
+|1 000         |      0.0003      |      0.0002      |      0.0007      |
+|10 000        |      0.0023      |      0.0016      |      0.0060      |
+|100 000       |      0.0223      |      0.0156      |      0.0605      |
+|1 000 000     |      0.2271      |      0.1677      |      0.6668      |
+|10 000 000    |      3.0576      |      2.0167      |      6.7021      |
 
-**Išvados:** iš atliktų testavimų galime matyti, kad vektoriaus konteineriui pati naudingiausia buvo būtent antra strategija, kuri naudoja tik viena naują konteinerį, tačiau list konteineriui greičiausiai suveikė trečia strategija, kurioje buvo naudojamas splice() metodas, kuris labai stipriai paspartina studentų dalijimą į dvi dalis.
+**Išvados:** iš atliktų testavimų galime matyti, kad sąrašo konteineriui pati naudingiausia buvo būtent antra strategija, kuri naudoja tik viena naują konteinerį, tačiau vektoriaus konteineriui greičiausiai suveikė pirma strategija.
 
 # Diegimo instrukcija
 1. Įsitikinti, kad kompiuteryje yra įdiegta C++ kompiliatorius, cmake, make ir git, jei ne - reikėtų įsidiegti šiuos dalykus.
@@ -138,7 +138,7 @@ Pasirinkus antrą opciją, programa sugeneruoja failus su įrašais nuo 1000 iki
 Naujos versijos pakeitimai:
 - Visų pirma, naujas laboratorinis darbas pareikalavo repozitorijos klonavimo, kuri ir buvo atlikta, išlaikant visą istoriją iš anksčiau.
 - Objektų laikymas struktūrose buvo pakeistas objektų laikymu klasėse.
-- Buvo atliktas programos spartos matavimas, naudojant List 3 strategijos konteinerį, nes jis buvo optimaliausias dalijant studentus į dvi grupes.
+- Buvo atliktas programos spartos matavimas, naudojant List 2 strategijos konteinerį, nes jis buvo optimaliausias dalijant studentus į dvi grupes.
 - Taip pat buvo atlikta eksperimentinė analizė, priklausomai nuo kompiliatoriaus optimizavimo lygio.
 
 Analizė: buvo matuojami 100000 ir 1000000 įrašų failai ir jų padalijimas į galvočius ir vargšiukus. Kiekvienas failas buvo matuojamas 5 kartus ir išvedamas matavimo vidurkis. Taip pat antras eksperimentas buvo žiūrimas vykdomojo failo dydis, priklausomai nuo optimizavimo lygio.
@@ -150,17 +150,17 @@ Rezultatai:
   
 |Optimizavimo lygis|STRUCT|CLASS |
 |------------------|-----:|-----:|
-|        O1        |0.0006|0.0036|
-|        O2        |0.0007|0.0035|
-|        O3        |0.0006|0.0035|
+|        O1        |0.0028|0.0023|
+|        O2        |0.0024|0.0022|
+|        O3        |0.0027|0.0023|
 
 - **1 000 000 įrašų matavimas sekundėmis**
   
 |Optimizavimo lygis|STRUCT|CLASS |
 |------------------|-----:|-----:|
-|        O1        |0.0148|0.0992|
-|        O2        |0.0111|0.0999|
-|        O3        |0.0139|0.0979|
+|        O1        |0.0581|0.0283|
+|        O2        |0.0628|0.0287|
+|        O3        |0.0599|0.0288|
 
 **2. Vykdomojo failo dydis, priklausomai nuo tipo ir optimizavimo lygio.**
 - **STRUCT**
@@ -168,20 +168,20 @@ Rezultatai:
 |Optimizavimo lygis|Failo dydis (KB)|
 |------------------|---------------:|
 |        O1        |       157      |
-|        O2        |       157      |
-|        O3        |       190      |
+|        O2        |       158      |
+|        O3        |       191      |
 
 - **CLASS**
 
 |Optimizavimo lygis|Failo dydis (KB)|
 |------------------|---------------:|
-|        O1        |        63      |
-|        O2        |        63      |
-|        O3        |        63      |
+|        O1        |        68      |
+|        O2        |        68      |
+|        O3        |        67      |
 
 
 **Išvados:**
 - Matome, kad dalijimas į grupes nuo optimizavimo lygio beveik nepriklauso, skiriasi tik kelios sekundės dalys.
-- Dalijimas į grupes tiek su 100 000, tiek su 1 000 000 įrašų failais buvo greitesnis struktūros atveju, skitumas pakankamai žymus.
+- Dalijimas į grupes tiek su 100 000, tiek su 1 000 000 įrašų failais buvo greitesnis klasės atveju, skitumas pakankamai žymus, kai matuojama 1 000 000 įrašų skaičius.
 - Failų dydžiai struktūroje truputį skiriasi: su O3 optimizavimo lygiu failas buvo didžiausias, o su kitais mažesnis ir jų dydis buvo toks pats.
-- Klasės atveju visi failai buvo vienodo dydžio. Teko pasidomėti kodėl taip gavosi. Ir atsakymas toks, kad pats algoritmas yra pakanakami optimizuotas, kad optimizavimo lygis nedaro jokio įtakos failo dydžiui/
+- Klasės atveju visi failai buvo panašaus dydžio.
