@@ -9,6 +9,7 @@
 #include <cmath>
 #include <iomanip>
 #include <sstream>
+#include <limits>
 
 using std::string;
 using std::vector;
@@ -20,6 +21,11 @@ using std::cout;
 using std::endl;
 using std::fixed;
 using std::setprecision;
+using std::setw;
+using std::left;
+using std::right;
+using std::sort;
+using std::ios_base;
 
 double mediana(const vector<double>& v);
 double vidurkis(const vector<double>& v);
@@ -35,15 +41,18 @@ public:
     double med;
     double gal;
     
-    Studentas() : egzaminas_(0) {}
+    Studentas() : egzaminas_(0.0), med(0.0), gal(0.0) {}
     Studentas(istream& is);
-    ~Studentas() {
-        vardas_.clear();
-        pavarde_.clear();
-        egzaminas_=0;
-        nd_.clear();
-    }
 
+    ~Studentas() {
+    vardas_.clear();
+    pavarde_.clear();
+    egzaminas_=0;
+    nd_.clear();}
+    
+    Studentas(const Studentas& other);
+    Studentas& operator=(const Studentas& other);
+    
     inline string vardas() const { return vardas_; }
     inline string pavarde() const { return pavarde_; }
     inline double egzaminas() const { return egzaminas_; }
@@ -52,7 +61,12 @@ public:
     double galBalas(double (*nd_skaic)(const vector<double>&) = mediana) const;
 
     istream& readStudent(istream& is);
-};
+    
+    friend istream& operator>>(istream& is, Studentas& studentas);
+    friend ostream& operator<<(ostream& os, const Studentas& studentas);};
+
+ostream& operator<<(ostream& os, const Studentas& studentas);
+istream& operator>>(istream& is, Studentas& studentas);
 
 bool compare(const Studentas& a, const Studentas& b);
 bool comparePagalPavarde(const Studentas& a, const Studentas& b);
