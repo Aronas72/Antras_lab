@@ -34,8 +34,8 @@ class Studentas {
 private:
     string vardas_;
     string pavarde_;
-    int egzaminas_;           // Pakeista į int
-    vector<int> nd_;          // Pakeista į int
+    int egzaminas_; 
+    vector<int> nd_;
 
 public:
     double med;
