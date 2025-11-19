@@ -192,4 +192,19 @@ Pakeitimai atlikti šioje versijoje:
 - Realizuotas "Rule of three" reikalavimas, kurį sudaro: destruktorius (realizuotas jau v1.1 versijoje), kopijavimo konstruktorius, priskyrimo operatorius.
 - Realizuoti įvesties ir išvesties operatoriai, kurių pagalba vartotojui duomenis įvesti paprasčiau.
 
+Aikšinimas apie duomenų įvesties ir išvesties metodus:
+- **Įvesties operatorius** šioje versijoje galima įvesti studento duomenis ranka: vardą, pavardę, namų darbų pažymius ir egzamino pažymį, kuriuos galima sugeneruoti ir atsitiktinai. Galima taip pat pasirinkti ir kiek pažymių norima įvesti.
 
+<img width="431" height="56" alt="image" src="https://github.com/user-attachments/assets/5bd702c4-b56b-4e58-a001-3ec096d13130" />
+
+Ši nuotrauka nukriepia mus į studento duomenų nuskaitymo metodą, kuriame ir naudojamas įvesties operatorius.
+
+<img width="357" height="128" alt="image" src="https://github.com/user-attachments/assets/1e604975-47ab-4ace-967d-d79bf7ea74f8" />
+
+<img width="671" height="313" alt="image" src="https://github.com/user-attachments/assets/e33d97df-19a1-4145-a705-208efe3d0b22" />
+
+- **Išvesties operatorius** šioje versijoje galima išvesti studento duomenis naudojant << operatorių. Vartotojas, išvedęs duomenis, visada matys studentų vardus ir pavardes, taip pat galės pasirinkti ar matyti tik galutinį balą suskaičiuotą tsikant vidurkio formulę, galutinį balą, suskaičiuotą taikant medianos formulę, galutinį balą pagal vidurkį ir medianą kartu.
+
+<img width="611" height="111" alt="image" src="https://github.com/user-attachments/assets/b6305cd9-82f2-4d3b-961b-41e13d8960ad" />
+
+Vartotojui taip pat šioje versijoje atsirado galimybė pamatyti rezultatus iškart konsolėje, jeigu tai yra nedidelis duomenų kiekis, kas yra patogu, kai nėra daug duomenų. Taip pat vartotojas gali ir pasirinkti išvesti duomenis į failą. Tai visiškai laisvas vartotojo pasirinkimas, priklausomas nuo norų. 
