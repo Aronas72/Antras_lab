@@ -16,23 +16,16 @@ double mediana(const vector<int>& v) {
     size_t n = temp.size();
     return (n % 2 == 0) ? (temp[n/2-1]+temp[n/2])/2.0 : temp[n/2];}
 
-Studentas::Studentas(const Studentas& other) :
-    vardas_(other.vardas_),
-    pavarde_(other.pavarde_),
-    egzaminas_(other.egzaminas_),
-    nd_(other.nd_),
-    med(other.med),
-    gal(other.gal) {}
+Studentas::Studentas(const Studentas& other)
+    : Zmogus(other), egzaminas_(other.egzaminas_), nd_(other.nd_), med(other.med), gal(other.gal) {}
 
 Studentas& Studentas::operator=(const Studentas& other) {
     if (this != &other) {
-        vardas_ = other.vardas_;
-        pavarde_ = other.pavarde_;
+        Zmogus::operator=(other);
         egzaminas_ = other.egzaminas_;
         nd_ = other.nd_;
         med = other.med;
         gal = other.gal;}
-    
     return *this;}
 
 double Studentas::galBalas(double (*nd_skaic)(const vector<int>&)) const {
