@@ -16,16 +16,6 @@ using std::vector;
 using std::list;
 using std::istream;
 using std::ostream;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::fixed;
-using std::setprecision;
-using std::setw;
-using std::left;
-using std::right;
-using std::sort;
-using std::ios_base;
 
 double mediana(const vector<int>& v);
 double vidurkis(const vector<int>& v);
@@ -34,7 +24,7 @@ class Studentas {
 private:
     string vardas_;
     string pavarde_;
-    int egzaminas_; 
+    int egzaminas_;
     vector<int> nd_;
 
 public:
@@ -42,15 +32,12 @@ public:
     double gal;
 
     Studentas() : egzaminas_(0), med(0.0), gal(0.0) {}
-    Studentas(istream& is);
-
     ~Studentas() {
         vardas_.clear();
         pavarde_.clear();
-        egzaminas_=0;
-        nd_.clear();
-    }
-
+        egzaminas_ = 0;
+        nd_.clear();}
+    
     Studentas(const Studentas& other);
     Studentas& operator=(const Studentas& other);
 
@@ -61,14 +48,12 @@ public:
 
     double galBalas(double (*nd_skaic)(const vector<int>&) = mediana) const;
 
-    istream& readStudent(istream& is);
-
-    friend istream& operator>>(istream& is, Studentas& studentas);
-    friend ostream& operator<<(ostream& os, const Studentas& studentas);
+    friend istream& operator>>(istream& is, Studentas& s);
+    friend ostream& operator<<(ostream& os, const Studentas& s);
 };
 
-ostream& operator<<(ostream& os, const Studentas& studentas);
-istream& operator>>(istream& is, Studentas& studentas);
+ostream& operator<<(ostream& os, const Studentas& s);
+istream& operator>>(istream& is, Studentas& s);
 
 bool compare(const Studentas& a, const Studentas& b);
 bool comparePagalPavarde(const Studentas& a, const Studentas& b);
