@@ -210,3 +210,10 @@ Aikšinimas apie duomenų įvesties ir išvesties metodus:
 Vartotojui taip pat šioje versijoje atsirado galimybė pamatyti rezultatus iškart konsolėje, jeigu tai yra nedidelis duomenų kiekis, kas yra patogu, kai nėra daug duomenų. Taip pat vartotojas gali ir pasirinkti išvesti duomenis į failą. Tai visiškai laisvas vartotojo pasirinkimas, priklausomas nuo norų. 
 
 **Po minimalaus pataisymo buvo realizuotas ir dabar programoje demonstruojamas RULE OF THREE testas.**
+
+## Versija v1.5
+
+Pakeitimai, kurie realizuoti šioje versijoje:
+- Vietoje turimos klasės **Studentas** sukurtos dvi naujos: bazinė klasė, skirta aprašyti žmogų, išvestinė klasė - **Studentas**.
+- Žmogui skirta bazinė klasė yra abstrakti.
+
