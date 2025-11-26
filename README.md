@@ -217,3 +217,17 @@ Pakeitimai, kurie realizuoti šioje versijoje:
 - Vietoje turimos klasės **Studentas** sukurtos dvi naujos: bazinė klasė, skirta aprašyti žmogų, išvestinė klasė - **Studentas**.
 - Žmogui skirta bazinė klasė yra abstrakti.
 
+Sukurta abstrakti klasė Zmogus:
+
+<img width="676" height="281" alt="image" src="https://github.com/user-attachments/assets/7ce46569-e24e-4de6-867b-3590c87b39c7" />
+
+Studentas klasė yra išvestinė iš sios klasės Zmogus.
+Studentas klasė vis dar palaiko RULE OF THREE, nors ir dabar yra išvestinė iš klasės Zmogus.
+
+Kad klasė Zmogus yra tikrai abstrakti pabandome patikrinti:
+
+<img width="79" height="25" alt="image" src="https://github.com/user-attachments/assets/3916c78e-6170-4e3b-a660-eaaaff8879bc" />
+
+Ir iškart gauname klaidą:
+
+<img width="296" height="35" alt="image" src="https://github.com/user-attachments/assets/d98e4b32-cf23-46d3-a58d-277264627b01" />
