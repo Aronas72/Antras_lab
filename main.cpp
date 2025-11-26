@@ -1,106 +1,170 @@
-#include "studentas.h"
-#include <random>
-#include <cmath>
-#include <iostream>
+#include "funkcijos.h"
+#include "generavimas.h"
+#include <chrono>
+#include <limits>
+#include <sstream>
+#include <utility>
 
-double vidurkis(const vector<int>& v) {
-    if (v.empty()) return 0.0;
-    double sum = 0.0;
-    for (int p : v) sum += p;
-    return sum / v.size();}
+using std::chrono::high_resolution_clock;
+using std::chrono::duration;
+using std::random_device;
+using std::mt19937;
+using std::ifstream;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::list;
 
-double mediana(const vector<int>& v) {
-    if (v.empty()) return 0.0;
-    vector<int> temp = v;
-    std::sort(temp.begin(), temp.end());
-    size_t n = temp.size();
-    return (n % 2 == 0) ? (temp[n/2-1]+temp[n/2])/2.0 : temp[n/2];}
-
-Studentas::Studentas(const Studentas& other)
-    : Zmogus(other), egzaminas_(other.egzaminas_), nd_(other.nd_), med(other.med), gal(other.gal) {}
-
-Studentas& Studentas::operator=(const Studentas& other) {
-    if (this != &other) {
-        Zmogus::operator=(other);
-        egzaminas_ = other.egzaminas_;
-        nd_ = other.nd_;
-        med = other.med;
-        gal = other.gal;}
-    return *this;}
-
-double Studentas::galBalas(double (*nd_skaic)(const vector<int>&)) const {
-    return nd_skaic(nd_)*0.4 + egzaminas_*0.6;}
-
-
-istream& operator>>(istream& is, Studentas& s) {
-    s.nd_.clear();
-
-    if (&is == &std::cin) {
-        std::cout << "Iveskite varda: ";
-        if (!(is >> s.vardas_)) return is;
-
-        std::cout << "Iveskite pavarde: ";
-        if (!(is >> s.pavarde_)) return is;
-
-        std::cout << "Ar generuoti atsitiktinius ND ir egzamino balus? (1-taip,0-ne): ";
-        int ats = 0;
-        if (!(is >> ats)) ats = 0;
-
-        if (ats == 1) {
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::uniform_int_distribution<int> dist(1,10);
-
-            int nd_kiek = 5;
-            std::cout << "Kiek ND sugeneruoti? ";
-            if (!(is >> nd_kiek) || nd_kiek <= 0) nd_kiek = 5;
-
-            for(int i=0;i<nd_kiek;i++) s.nd_.push_back(dist(gen));
-            s.egzaminas_ = dist(gen);
-
-            std::cout << "Sugeneruoti ND: ";
-            for(auto d : s.nd_) std::cout << d << " ";
-            std::cout << "Egzaminas: " << s.egzaminas_ << std::endl;}
+list<Studentas> rankinisNuskaitymas(int kiekis) {
+    list<Studentas> grupe;
+    Studentas st;
+    int i = 0;
+    cout << "--- Rankinis ivedimas: Ivesite " << kiekis << " studentu. ---" << endl;
+    while (i < kiekis) {
+        cout << "Ivedamas " << i + 1 << "-as studentas is " << kiekis << ": " << endl;
+        if (cin >> st) {
+            grupe.push_back(std::move(st));
+            st = Studentas();
+            i++;}
         else {
-            std::cout << "Iveskite ND (1-10, pabaigai - ne skaiciu):" << std::endl;
-            int paz;
-            while(std::cout<<"ND: " && (is>>paz) && paz>=1 && paz<=10) s.nd_.push_back(paz);
+            cout << "\nNeteisinga ivestis. Rankinis ivedimas nutrauktas." << endl;
+            break;}}
+    return grupe;}
 
-            is.clear();
-            is.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+void rule_of_three_testas() {
+    cout << "--- RULE OF THREE TESTAS ---"<<endl;
+    Studentas st_orig;
+    cout << "Iveskite pirmojo studento duomenis (pvz. Jonas Petraitis 5 6 7 8 9 10): "<<endl;
+    cin >> st_orig;
+    
+    cout<<endl<<"Kopijavimo konstruktoriaus testas:"<<endl;
+    Studentas st_copy = st_orig;
+    cout << "st_copy vardas: " << st_copy.vardas() << ", pavarde: " << st_copy.pavarde() << endl;
+    
+    cout <<endl<< "Kopijavimo priskyrimo operatoriaus testas:"<<endl;
+    Studentas st_assign;
+    cout << "Iveskite antrojo studento duomenis (pvz. Ona Kazlauskaite 1 2 3 4 5 6): "<<endl;
+    cin >> st_assign;
+    
+    st_assign = st_orig;
+    cout << "st_assign naujas vardas: " << st_assign.vardas() << ", pavarde: " << st_assign.pavarde() << endl;
+    
+    cout <<endl<<"--- TESTO PABAIGA. Destruktoriai bus iškviesti dabar ---"<<endl;}
 
-            std::cout<<"Egzaminas (1-10): ";
-            if(!(is>>s.egzaminas_) || s.egzaminas_<1 || s.egzaminas_>10){
-                s.egzaminas_=0;
-                is.setstate(std::ios_base::failbit);
-                return is;}}}
-    else{
-        string eil;
-        if(!std::getline(is,eil)){ is.setstate(std::ios_base::failbit); return is; }
-        std::istringstream iss(eil);
+int main() {
+    random_device rd;
+    mt19937 gener(rd());
+    
+    //Zmogus z;
 
-        if(!(iss>>s.vardas_>>s.pavarde_)){ is.setstate(std::ios_base::failbit); return is; }
+    cout << "Pasirinkite veiksma:" << endl;
+    cout << "1 - ivesti studentus (list, strategija 2)." << endl;
+    cout << "2 - sugeneruoti failus." << endl;
+    cout << "3 - atlikti testavima su 100000 ir 1000000 dydzio failais." << endl;
+    cout << "4 - RULE OF THREE demonstracija." << endl;
+    cout << "Pasirinkimas: ";
 
-        vector<int> paz;
-        int x;
-        while(iss>>x) paz.push_back(x);
+    int pasirinkimas = 0;
+    cin >> pasirinkimas;
 
-        if(!paz.empty()){ s.egzaminas_=paz.back(); paz.pop_back(); } else s.egzaminas_=0;
+    if (cin.fail()){
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cout << "Neteisinga ivestis. Programa baigia darba." << endl;
+        return 1;}
 
-        s.nd_ = std::move(paz);}
+    if (pasirinkimas == 2){
+        generavimas("mano1000.txt", 1000, gener);
+        generavimas("mano10000.txt", 10000, gener);
+        generavimas("mano100000.txt", 100000, gener);
+        generavimas("mano1000000.txt", 1000000, gener);
+        generavimas("mano10000000.txt", 10000000, gener);}
+    else if (pasirinkimas == 3){
+        testavimas();
+        return 0;}
+    else if (pasirinkimas == 4) {
+        rule_of_three_testas();
+        return 0;}
+    else if (pasirinkimas == 1){
+        list<Studentas> grupe;
+        auto start = high_resolution_clock::now();
 
-    double nd_vid = vidurkis(s.nd_);
-    double nd_med = mediana(s.nd_);
-    s.med = nd_med*0.4 + s.egzaminas_*0.6;
-    s.gal = nd_vid*0.4 + s.egzaminas_*0.6;
+        cout << "Pasirinkite kaip ivesti duomenis:" << endl;
+        cout << "1 - failas" << endl;
+        cout << "2 - ranka" << endl;
+        cout << "Pasirinkimas: ";
+        int duom = 0;
+        cin >> duom;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    return is;}
+        if (duom == 1) {
+            string failpav;
+            cout << "Iveskite failo pavadinima: ";
+            std::getline(cin, failpav);
+            grupe = nuskaitymas(failpav, true);}
+        else if (duom == 2) {
+            int kiekis;
+            cout << "Kiek studentu noresite vesti rankiniu budu? Kiekis: ";
+            if (!(cin >> kiekis) || kiekis <= 0) {
+                cout << "Neteisingas studentu skaicius. Programa baigia darba." << endl;
+                return 1;}
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            grupe = rankinisNuskaitymas(kiekis);}
+        else {
+            cout << "Neteisingas ivesties saltinio pasirinkimas. Programa baigia darba." << endl;
+            return 1;}
 
-ostream& operator<<(ostream& os, const Studentas& s) {
-    os << std::setw(15) << std::left << s.vardas_ << std::setw(20) << std::left << s.pavarde_ << std::setw(18) << std::right << std::fixed << std::setprecision(2) << s.med << std::setw(18) << std::right << std::fixed << std::setprecision(2) << s.gal << std::endl;
-    return os;}
+        auto end = high_resolution_clock::now();
+        cout << "Nuskaitymas uztruko: " << duration<double>(end - start).count() << " s" << endl;
 
-bool compare(const Studentas& a, const Studentas& b){ return a.vardas() < b.vardas();}
-bool comparePagalPavarde(const Studentas& a, const Studentas& b){ return a.pavarde() < b.pavarde();}
-bool comparePagalMed(const Studentas& a, const Studentas& b){ return a.med < b.med;}
-bool comparePagalVid(const Studentas& a, const Studentas& b){ return a.gal < b.gal;}
+        if (grupe.empty()) {
+            cout << "Nepavyko nuskaityti studentu. Programa baigia darba." << endl;
+            return 0;}
+
+        list<Studentas> vargsiukai;
+        int gbalas = 0;
+        cout << "Pasirinkite kaip skirstyti studentus:" << endl;
+        cout << "1 - vidurkis" << endl;
+        cout << "2 - mediana" << endl;
+        cout << "Jusu pasirinkimas: ";
+        cin >> gbalas;
+
+        start = high_resolution_clock::now();
+        strategija2_list(grupe, vargsiukai, gbalas);
+        end = high_resolution_clock::now();
+        cout << "Skirstymas uztruko: " << duration<double>(end - start).count() << " s" << endl;
+
+        int rik = 0;
+        cout << "Pasirinkite pagal ka rikiuoti:" << endl;
+        cout << "1 - vardas" << endl;
+        cout << "2 - pavarde" << endl;
+        cout << "3 - balas" << endl;
+        cout << "Jusu pasirinkimas: ";
+        cin >> rik;
+
+        int balas = 0;
+        cout << "Pasirinkite, kuriuos parametrus rodyti (pagal juos buvo suskaiciuotas ir galutinis balas):" << endl;
+        cout << "1 - vidurkis" << endl;
+        cout << "2 - mediana" << endl;
+        cout << "3 - abu" << endl;
+        cout << "Jusu pasirinkimas: ";
+        cin >> balas;
+
+        int isved;
+        cout << "Kur norite isvesti rezultatus?" << endl;
+        cout << "1 - I faila (vargsiukai.txt ir galvociai.txt)" << endl;
+        cout << "2 - I ekrana (konsole)" << endl;
+        cout << "Pasirinkimas: ";
+        cin >> isved;
+
+        start = high_resolution_clock::now();
+        if (isved == 2) {
+            isvedimas(vargsiukai, grupe, rik, balas, true);}
+        else {
+            isvedimas(vargsiukai, grupe, rik, balas, false);}
+        end = high_resolution_clock::now();
+        cout << "Isvedimas uztruko: " << duration<double>(end - start).count() << " s" << endl;
+
+        if (isved != 2) {
+            cout << "Rezultatai irasyti i failus." << endl;}}
+    return 0;}
