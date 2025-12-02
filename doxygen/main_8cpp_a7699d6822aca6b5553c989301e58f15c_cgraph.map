@@ -1,0 +1,7 @@
+<map id="rule_of_three_testas" name="rule_of_three_testas">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,145,56"/>
+<area shape="rect" id="Node000002" href="$class_zmogus.html#a0ccc9864e6fb821e519fc50afd96dfe1" title="Grąžina pavardę" alt="" coords="193,5,315,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,31,180,28,175,30,145,36"/>
+<area shape="rect" id="Node000003" href="$class_zmogus.html#a9ba88c78eedc8094a3b38cdf55228bae" title="Grąžina vardą" alt="" coords="196,55,312,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,50,183,57,178,58,145,56"/>
+</map>
