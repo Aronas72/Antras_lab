@@ -231,3 +231,10 @@ Kad klasė Zmogus yra tikrai abstrakti pabandome patikrinti:
 Ir iškart gauname klaidą:
 
 <img width="296" height="35" alt="image" src="https://github.com/user-attachments/assets/d98e4b32-cf23-46d3-a58d-277264627b01" />
+
+## Versija 2.0
+
+Kas buvo atlikta šioje versijoje:
+- Sukurta doxygen dokumentacija.
+- Realizuoti unit testai.
+- Galutinai sutvarkyta repozitorija ir baigtas v2.0 kūrimas.
