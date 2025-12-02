@@ -1,0 +1,8 @@
+<map id="strategija2_list" name="strategija2_list">
+<area shape="rect" id="Node000001" title="Skirsto studentus į „vargsiukus“ ir „galvocius“ pagal pasirinkimą." alt="" coords="236,5,341,31"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,21,55,21,55,16,221,16"/>
+<area shape="rect" id="Node000003" href="$funkcijos_8cpp.html#a31a9b8a9c24e8270b70e3ad8352944a4" title="Atlieka testavimą su dideliais failais ir matuoja nuskaitymo bei skirstymo laiką." alt="" coords="103,31,188,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,30,189,39,188,33,218,31"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="85,32,55,26,55,21,90,30"/>
+</map>

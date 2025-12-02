@@ -1,0 +1,17 @@
+<map id="generavimas.h" name="generavimas.h">
+<area shape="rect" id="Node000001" title="Funkcija failų generavimui su atsitiktiniais studentų duomenimis." alt="" coords="253,5,360,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,77,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,34,92,80,91,74,261,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,79,168,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="280,31,178,75,177,70,275,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,79,245,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="294,31,246,71,244,67,289,32"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="269,79,344,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="308,29,309,65,304,62,304,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="368,79,432,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="323,29,375,70,369,69,321,34"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="456,79,522,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="338,29,447,73,441,73,337,34"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="546,79,606,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="354,29,533,78,528,78,353,34"/>
+</map>

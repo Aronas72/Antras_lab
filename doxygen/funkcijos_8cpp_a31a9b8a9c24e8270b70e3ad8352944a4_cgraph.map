@@ -1,0 +1,7 @@
+<map id="testavimas" name="testavimas">
+<area shape="rect" id="Node000001" title="Atlieka testavimą su dideliais failais ir matuoja nuskaitymo bei skirstymo laiką." alt="" coords="5,31,91,56"/>
+<area shape="rect" id="Node000002" href="$funkcijos_8cpp.html#a601c5184071703a27d300dc921469b9a" title="Nuskaityti studentus iš failo arba iš konsolės." alt="" coords="144,5,239,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,33,131,28,126,30,92,39"/>
+<area shape="rect" id="Node000003" href="$funkcijos_8cpp.html#aed4024f2d751bd019dd9b238bc2518ce" title="Skirsto studentus į „vargsiukus“ ir „galvocius“ pagal pasirinkimą." alt="" coords="139,55,244,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,48,126,56,121,57,91,53"/>
+</map>
