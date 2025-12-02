@@ -1,0 +1,21 @@
+<map id="studentas.h" name="studentas.h">
+<area shape="rect" id="Node000001" title="Studentų klasės ir funkcijos galutinių balų skaičiavimui." alt="" coords="315,5,404,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,77,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,32,93,81,92,76,314,27"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,79,154,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="323,32,170,80,169,75,318,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="179,79,236,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="336,31,248,74,246,69,331,32"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="260,79,299,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="349,31,305,71,303,66,344,32"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="322,79,397,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="362,29,362,65,358,62,358,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="421,79,488,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="377,29,429,70,424,69,375,34"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="512,79,580,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="392,29,503,73,498,73,391,34"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="604,79,656,105"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="405,28,592,78,587,78,404,33"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="681,79,745,105"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="405,25,520,46,668,78,663,78,519,51,405,30"/>
+</map>
