@@ -1,0 +1,9 @@
+<map id="Zmogus::Zmogus" name="Zmogus::Zmogus">
+<area shape="rect" id="Node000001" title=" " alt="" coords="201,55,324,80"/>
+<area shape="rect" id="Node000002" href="$class_zmogus.html#af91f9671d3dbc988ada25cd3a0bf05c5" title=" " alt="" coords="9,5,149,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,51,130,34,130,29,200,49"/>
+<area shape="rect" id="Node000003" href="$class_zmogus.html#a4cd9ea7a82145e5facc723c96384da0f" title=" " alt="" coords="9,55,149,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,68,150,70,149,65,188,67"/>
+<area shape="rect" id="Node000004" href="$class_studentas.html#aef0484fe46cf05746f8ffc0d083fcf3e" title="Kopijavimo konstruktorius." alt="" coords="5,104,153,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,84,130,106,129,101,195,85"/>
+</map>
