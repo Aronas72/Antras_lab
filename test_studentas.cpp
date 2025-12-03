@@ -1,5 +1,5 @@
 #include "studentas.h"
-#include "gtest.h"
+#include <gtest/gtest.h>
 #include <vector>
 
 TEST(FunkcijosTest, Vidurkis) {
@@ -47,4 +47,3 @@ TEST(StudentasTest, PriskyrimoOperatorius) {
     s2 = s1; // assignment
     EXPECT_DOUBLE_EQ(s2.galBalas(vidurkis), s1.galBalas(vidurkis));
 }
-
