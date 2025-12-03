@@ -21,10 +21,12 @@ FetchContent_Declare(
     URL https://github.com/google/googletest/archive/refs/heads/main.zip)
 
 FetchContent_MakeAvailable(googletest)
-enable_testing();
+
+enable_testing()
 
 add_executable(unit_tests test_studentas.cpp)
 target_link_libraries(unit_tests PRIVATE studentas_lib gtest gtest_main)
 
 add_test(NAME AllTests COMMAND unit_tests)
+
 
