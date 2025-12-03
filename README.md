@@ -238,3 +238,25 @@ Kas buvo atlikta šioje versijoje:
 - Sukurta doxygen dokumentacija.
 - Realizuoti unit testai.
 - Galutinai sutvarkyta repozitorija ir baigtas v2.0 kūrimas.
+
+Kaip įvykdyti šiuos testus, kurie yra test_studentas.cpp:
+
+<img width="576" height="780" alt="image" src="https://github.com/user-attachments/assets/9db774d2-7a9e-4019-b977-d272d2f8e3e8" />
+
+1. Atsidarę terminalą įveskite: git clone https://github.com/Aronas72/Antras_lab.git
+2. Toliau rašykite cd Antras_lab
+3. mkdir build
+4. cd build
+5. cmake ..
+6. cmake --build . --verbose
+7. Tada yra du pasirinkimai:
+ - Norint paleisti programą, kaip v1.5 versijoje suveskite ./studentas_program
+ - Norint pamatyti testų rezultataus suveskite ./unit_tests
+
+Jeigu norėsit atlikti testavimą ekrane pamatysit tokį rezultatą:
+
+<img width="411" height="325" alt="image" src="https://github.com/user-attachments/assets/33a89a19-51a2-478c-b321-50bdaa50916c" />
+
+Tai reiškia, kad testavimas sėkimgas ir visi testuojami metodai ir funkcijos veikia taip, kaip ir turi veikti.
+
+Taip pat CMakeLists.txt failas užtikrina, kad yra parsiunčiamas googletest ir su juo vykdomas testavimas.
